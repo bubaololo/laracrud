@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\DbtestController;
+use App\Http\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,4 +39,6 @@ Route::get('/cont', function ()
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])->name('users');
+Route::get('/users', [App\Http\Controllers\UsersController::class, 'allData'])->name('users')->middleware('isadmin');
+Route::get('/users/{id}', [App\Http\Controllers\UsersController::class, 'userInfo'])->name('user-info')->middleware('isadmin');
+Route::get('/users/{id}/delete', [App\Http\Controllers\UsersController::class, 'userDelete'])->name('user-delete')->middleware('isadmin');
