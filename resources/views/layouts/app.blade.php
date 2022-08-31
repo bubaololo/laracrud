@@ -36,13 +36,17 @@
 
                     @if (Gate::check('register'))
                     {{-- <li>
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500">Register</a>
+                        <a href="{{ route('register') }}" class="px-2 ml-4 text-sm text-gray-700 dark:text-gray-500">Register</a>
                     </li> --}}
                     <li>
-                        <a href="{{ route('users') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500">Users</a>
+                        <a href="{{ route('users') }}" class="px-2 ml-4 text-sm text-gray-700 dark:text-gray-500">Users</a>
                     </li>
                     @endif
-                     
+                    @if (Auth::check())
+                    <li>
+                        <a href="{{ route('tasks') }}" class=" px-2 ml-4 text-sm text-gray-700 dark:text-gray-500">Tasks</a>
+                    </li>
+                    @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

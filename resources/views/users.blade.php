@@ -22,7 +22,11 @@
                                 </div>
                             @endforeach --}}
                         <table class="table">
-                            
+                            @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                            @endif
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>

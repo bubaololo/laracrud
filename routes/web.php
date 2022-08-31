@@ -36,9 +36,22 @@ Route::get('/cont', function ()
     ]);
 });
 
+Route::get('/basic', function () {
+    return "залогинило";
+})->middleware('auth.basic');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/users', [App\Http\Controllers\UsersController::class, 'allData'])->name('users')->middleware('isadmin');
 Route::get('/users/{id}', [App\Http\Controllers\UsersController::class, 'userInfo'])->name('user-info')->middleware('isadmin');
 Route::get('/users/{id}/delete', [App\Http\Controllers\UsersController::class, 'userDelete'])->name('user-delete')->middleware('isadmin');
+
+Route::get('/tasks', [App\Http\Controllers\TasksController::class, 'index'])->name('tasks');
+Route::post('/tasks', [App\Http\Controllers\TasksController::class, 'store'])->name('save-task');
+Route::get('/tasks/{id}/delete', [App\Http\Controllers\TasksController::class, 'delete'])->name('delete-task');
+
+
+
+
+
