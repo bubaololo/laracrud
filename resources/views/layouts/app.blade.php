@@ -43,8 +43,11 @@
                     </li>
                     @endif
                     @if (Auth::check())
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('tasks') }}" class=" px-2 ml-4 text-sm text-gray-700 dark:text-gray-500">Tasks</a>
+                    </li> --}}
+                    <li>
+                        <a href="{{ route('pages.index') }}" class=" px-2 ml-4 text-sm text-gray-700 dark:text-gray-500">Заголовки</a>
                     </li>
                     @endif
                     </ul>

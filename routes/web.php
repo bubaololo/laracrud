@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\DbtestController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\PageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +51,8 @@ Route::get('/users/{id}/delete', [App\Http\Controllers\UsersController::class, '
 Route::get('/tasks', [App\Http\Controllers\TasksController::class, 'index'])->name('tasks');
 Route::post('/tasks', [App\Http\Controllers\TasksController::class, 'store'])->name('save-task');
 Route::get('/tasks/{id}/delete', [App\Http\Controllers\TasksController::class, 'delete'])->name('delete-task');
+
+Route::resource('pages', PageController::class);
 
 
 
