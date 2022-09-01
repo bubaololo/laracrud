@@ -11317,10 +11317,9 @@ details {
 }
 
 form {
-    min-height: 250px;
-    min-width: 350px;
+
     
-    margin: 4ch;
+    margin: 0;
     grid-area: form;
     flex-basis: 30vw;
 

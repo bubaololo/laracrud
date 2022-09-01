@@ -36,7 +36,23 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = $request->all()['_id'];
+        $page = Page::find($id);
+        
+        if(array_key_exists('description', $request->all())) {
+            $desc = $request->all()['description'];
+            
+                $page->description = $desc;
+                $page->save();
+            return redirect()->route('pages.index')->with('success', "Description ". $page['url']. " обновлён");
+        } else {
+            $title = $request->all()['title'];
+            
+               $page->title = $title;
+               $page->save();
+            return redirect()->route('pages.index')->with('success', "Title ". $page['url']. " обновлён");
+        }
+
     }
 
     /**
@@ -70,7 +86,9 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        // return 'yo';
+        // return redirect()->route('tasks')->with('success', "Задача была удалёна");
     }
 
     /**
